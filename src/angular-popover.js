@@ -1,16 +1,17 @@
-;(function() {
+;
+(function() {
 
-	var app = angular.module('angular-popover', [])
+    let app = angular.module('angular-popover', []);
 
-	app.directive('angularPopover', ['$window', function($window) {
-		return {
+    app.directive('angularPopover', function() {
+        return {
             restrict: 'A',
             transclude: true,
             scope: true,
             templateUrl: './angular-popover.template.html',
             link: function(scope, element, attrs) {
                 //the root div of the popup template
-                var popover_container = element[0].querySelector('.angular-popover-container'),
+                let popover_container = element[0].querySelector('.angular-popover-container'),
                     popoverTransclude,
                     horizontalOffset = parseInt(attrs.horizontaloffset, 10),
                     popover, //the popover element
@@ -26,34 +27,34 @@
 
                 triangle_height = Math.sqrt(triangle_div_side * triangle_div_side / 2);
                 triangle_diagonal = Math.sqrt(triangle_div_side * triangle_div_side * 2);
-                var mode = attrs.mode || 'click';
-                var closeOnClick = attrs.closeonclick === undefined ?
-                    (mode == 'click' ? true : false) :
+                let mode = attrs.mode || 'click';
+                let closeOnClick = attrs.closeonclick === undefined ?
+                    (mode == 'click') :
                     (attrs.closeOnClick === 'true');
 
-                var closeOnMouseleave = attrs.closeOnMouseleave === undefined ?
-                    (mode == 'mouseover' ? true : false) :
+                let closeOnMouseleave = attrs.closeOnMouseleave === undefined ?
+                    (mode == 'mouseover') :
                     (attrs.closeOnMouseleave === 'true');
 
                 //depending upon the direction specified, attached the appropriate class to the popover
                 scope.getTriangleClass = function() {
                     return 'angular-popover-triangle-' + attrs.direction;
-                }
+                };
 
-                scope.onBlur = function () {
+                scope.onBlur = function() {
                     popover.classList.add('hide-popover-element');
                     triangle.classList.add('hide-popover-element');
-                }
+                };
 
 
-                if(closeOnMouseleave) {
+                if (closeOnMouseleave) {
                     element[0].addEventListener('mouseleave', function() {
                         popover.classList.add('hide-popover-element');
                         triangle.classList.add('hide-popover-element');
                     });
                 }
 
-                if(mode != 'click' && closeOnClick) {
+                if (mode != 'click' && closeOnClick) {
                     element[0].addEventListener('click', function() {
                         popover.classList.add('hide-popover-element');
                         triangle.classList.add('hide-popover-element');
@@ -66,23 +67,21 @@
                     parent_height = element[0].clientHeight;
 
                     //move the popover container to the bottom of the directive element
-                    popover_container.style.top = ( parent_height + 5 ) + 'px';
+                    popover_container.style.top = (parent_height + 5) + 'px';
                     parent_width = element[0].clientWidth;
                     popover = element[0].querySelector('.angular-popover');
                     triangle = element[0].querySelector('.angular-popover-triangle');
 
-                    if(mode == 'click' && closeOnClick) {
+                    if (mode == 'click' && closeOnClick) {
                         popover.classList.toggle('hide-popover-element');
                         triangle.classList.toggle('hide-popover-element');
-                    }
-
-                    else if(mode == 'click' && !closeOnClick) {
+                    } else if (mode == 'click' && !closeOnClick) {
                         popover.classList.remove('hide-popover-element');
                         triangle.classList.remove('hide-popover-element');
                     }
 
                     //'mouseover' mode
-                    else if(popover.classList.contains('hide-popover-element')) {
+                    else if (popover.classList.contains('hide-popover-element')) {
                         popover.classList.remove('hide-popover-element');
                         triangle.classList.remove('hide-popover-element');
                     }
@@ -91,32 +90,32 @@
                     popover_width = popover.clientWidth;
 
                     //check direction and calculate position for appending popover and triangle
-                    switch(attrs.direction) {
-                        case 'top' :
+                    switch (attrs.direction) {
+                        case 'top':
                             popover.style.top = (-parent_height - popover_height - triangle_height) + 'px';
-                            popover.style.left = ((parent_width - popover_width)/2) + 'px';
+                            popover.style.left = ((parent_width - popover_width + horizontalOffset) / 2) + 'px';
                             triangle.style.top = (-parent_height - triangle_height) + 'px';
-                            triangle.style.left = ((parent_width - triangle_rect_div_side)/2) + 'px';
+                            triangle.style.left = ((parent_width - triangle_rect_div_side) / 2) + 'px';
                             break;
 
                         case 'bottom':
                             popover.style.top = triangle_height + 'px';
-                            popover.style.left = ( ( parent_width - popover_width + horizontalOffset ) / 2 ) + 'px';
-                            triangle.style.top = -( triangle_rect_div_side - triangle_height - 1 ) + 'px';
-                            triangle.style.left = ( ( parent_width - triangle_rect_div_side ) / 2) + 'px';
+                            popover.style.left = ((parent_width - popover_width + horizontalOffset) / 2) + 'px';
+                            triangle.style.top = -(triangle_rect_div_side - triangle_height - 1) + 'px';
+                            triangle.style.left = ((parent_width - triangle_rect_div_side) / 2) + 'px';
                             break;
 
                         case 'right':
-                            popover.style.top = ((parent_height - popover_height)/2 - parent_height) + 'px';
+                            popover.style.top = ((parent_height - popover_height) / 2 - parent_height) + 'px';
                             popover.style.left = parent_width + triangle_height + 'px';
-                            triangle.style.top = ((parent_height - triangle_rect_div_side)/2 - parent_height) + 'px';
+                            triangle.style.top = ((parent_height - triangle_rect_div_side) / 2 - parent_height) + 'px';
                             triangle.style.left = (parent_width - (triangle_rect_div_side - triangle_height)) + 'px';
                             break;
 
                         case 'left':
-                            popover.style.top = ((parent_height - popover_height)/2 - parent_height) + 'px';
+                            popover.style.top = ((parent_height - popover_height) / 2 - parent_height) + 'px';
                             popover.style.right = triangle_height + 'px';
-                            triangle.style.top = ((parent_height - triangle_rect_div_side)/2 - parent_height) + 'px';
+                            triangle.style.top = ((parent_height - triangle_rect_div_side) / 2 - parent_height) + 'px';
                             triangle.style.left = -triangle_height + 'px';
                             break;
                     }
@@ -124,6 +123,6 @@
                     popoverTransclude.focus();
                 });
             }
-		}
-	}]);
+        }
+    });
 })();

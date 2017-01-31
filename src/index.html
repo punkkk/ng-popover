@@ -6,11 +6,20 @@
 			button {
 				background-color: #0599f1;
 				border-radius: 2px;
-				border: 1px solid #0599f1;
+				/*border: 1px solid #0599f1;*/
 				color: #fff;
 				font-size: 18px;
 				outline-style: none;
-				margin-bottom: 15px;
+				border: 0;
+				padding: 10px;
+			}
+
+			button:not(:first-child){
+				margin-right: 20px;
+			}
+
+			button:first-child {
+				margin-left: 20px;
 			}
 
 			button:before {
@@ -24,10 +33,15 @@
 				left: 0;
 				right: 0;
 				display: inline-block;
-				height: 100px;			
-				width: 150px;
+				height: 100px;
 				margin: auto;
 				text-align: center;
+			}
+
+			.space-between {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
 			}
 
 			ul {
@@ -56,12 +70,27 @@
 	</head>
 	<body ng-app="testPopover" ng-controller="testCtrl">
 		<div class="centered">
-			<div style="display: inline-block">
-				<button class="my-custom-class" angular-popover closeOnClick="false" direction="bottom" horizontalOffset="-70" background-color="red" text-color="blue" padding="20px" style="position: relative;">
+			<div class="space-between">
+				<button class="my-custom-class" angular-popover closeOnClick="false" direction="right" horizontalOffset="-70" padding="20px" style="position: relative;">
 					<ul class="popover-list">
 						<li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
 					</ul>
 				</button>
+				<button class="my-custom-class" angular-popover closeOnClick="false" direction="top" horizontalOffset="-70" padding="20px" style="position: relative;">
+					<ul class="popover-list">
+						<li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
+					</ul>
+				</button>
+                <button class="my-custom-class" angular-popover closeOnClick="false" direction="bottom" horizontalOffset="70" padding="20px" style="position: relative;">
+                    <ul class="popover-list">
+                        <li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
+                    </ul>
+                </button>
+                <button class="my-custom-class" angular-popover closeOnClick="false" direction="left" horizontalOffset="-70" padding="20px" style="position: relative;">
+                    <ul class="popover-list">
+                        <li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
+                    </ul>
+                </button>
 			</div>
 		</div>	
 		<script type="text/javascript" src="angular.min.js"></script>
