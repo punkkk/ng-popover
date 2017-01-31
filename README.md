@@ -1,6 +1,6 @@
 # ng-popover
 Custom popover with transcluding content. Original demo: http://tarun-dugar.github.io/ng-popover/
-![alt tag](https://raw.githubusercontent.com/tarun-dugar/ng-popover/gh-pages/angular-popover.png)
+![alt tag](https://github.com/punkkk/ng-popover/blob/image/screen.png)
 
 Installation
 -----
@@ -10,13 +10,11 @@ npm install https://github.com/punkkk/ng-popover.git
 
 Features
 -----------
-A simple AngularJS(1.x) directive which creates a simple but fully customizable popover. Options:
+All old feauters +:
 
-  1. Use an external template or just a string for the popover content.
-  2. Open the popover using either a click or mouseover.
-  3. Specify the direction of the popover - top, bottom, left, right.
-  4. Decide whether you want to close the popover by click or when the mouse cursor leaves the popover area.
-  5. Comes with a box shadow, a triangular tip and a floating effect.
+1. external scope inside
+2. focus leave closing
+3. horizontal offset, if you want to use it inside something like "card"
 
 Usage
 -----
@@ -36,11 +34,6 @@ Usage
 
 Options
 -------
-###template
-Use the template attribute when you just want to add some text inside the popover. This avoids the hassle of creating an external template everytime.
-
-###template-url
-When you want to load the popover with an external template, set template-url to the path of your template.
 
 ###mode
 Decide on what event you want the popover to open - `click` or `mouseover`. If not specified, the click event will be used.
