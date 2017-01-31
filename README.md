@@ -1,17 +1,12 @@
 # ng-popover
-Fully customizable and easy-to-use AngularJS 1.x directive for elegant multi-directional popovers. Independent of jQuery or any CSS framework.
-
+Custom popover with transcluding content. Original demo: http://tarun-dugar.github.io/ng-popover/
 ![alt tag](https://raw.githubusercontent.com/tarun-dugar/ng-popover/gh-pages/angular-popover.png)
 
 Installation
 -----
 ```code
-npm install ng-popover
+npm install https://github.com/punkkk/ng-popover.git
 ```
-
-Demo
---------
-  http://tarun-dugar.github.io/ng-popover/  
 
 Features
 -----------
