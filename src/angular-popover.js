@@ -27,12 +27,12 @@
 
                 triangle_height = Math.sqrt(triangle_div_side * triangle_div_side / 2);
                 triangle_diagonal = Math.sqrt(triangle_div_side * triangle_div_side * 2);
-                let mode = attrs.mode || 'click';
-                let closeOnClick = attrs.closeonclick === undefined ?
+                const mode = attrs.mode || 'click';
+                const closeOnClick = attrs.closeonclick === undefined ?
                     (mode == 'click') :
                     (attrs.closeOnClick === 'true');
 
-                let closeOnMouseleave = attrs.closeOnMouseleave === undefined ?
+                const closeOnMouseleave = attrs.closeOnMouseleave === undefined ?
                     (mode == 'mouseover') :
                     (attrs.closeOnMouseleave === 'true');
 
@@ -41,8 +41,8 @@
                     return 'angular-popover-triangle-' + attrs.direction;
                 };
 
-                scope.onBlur = function() {
-                    if( !( closeOnMouseleave || closeOnClick) ) {
+                scope.onBlur = () => {
+                    if( !( closeOnMouseleave || closeOnClick ) ) {
                         popover.classList.add('hide-popover-element');
                         triangle.classList.add('hide-popover-element');
                     }
@@ -50,21 +50,21 @@
 
 
                 if (closeOnMouseleave) {
-                    element[0].addEventListener('mouseleave', function() {
+                    element[0].addEventListener('mouseleave', () => {
                         popover.classList.add('hide-popover-element');
                         triangle.classList.add('hide-popover-element');
                     });
                 }
 
                 if (mode != 'click' && closeOnClick) {
-                    element[0].addEventListener('click', function() {
+                    element[0].addEventListener('click', () => {
                         popover.classList.add('hide-popover-element');
                         triangle.classList.add('hide-popover-element');
                     });
                 }
 
                 //listen for click on the directive element
-                element[0].addEventListener(mode, function() {
+                element[0].addEventListener(mode, () => {
                     popoverTransclude = element[0].querySelector(".popover-transclude");
                     parent_height = element[0].clientHeight;
 
