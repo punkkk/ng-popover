@@ -42,8 +42,10 @@
                 };
 
                 scope.onBlur = function() {
-                    popover.classList.add('hide-popover-element');
-                    triangle.classList.add('hide-popover-element');
+                    if( !( closeOnMouseleave || closeOnClick) ) {
+                        popover.classList.add('hide-popover-element');
+                        triangle.classList.add('hide-popover-element');
+                    }
                 };
 
 
@@ -119,7 +121,6 @@
                             triangle.style.left = -triangle_height + 'px';
                             break;
                     }
-
                     popoverTransclude.focus();
                 });
             }
