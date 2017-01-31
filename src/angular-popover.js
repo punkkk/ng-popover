@@ -5,7 +5,13 @@ angularPopover.directive('angularPopover', function() {
         restrict: 'A',
         transclude: true,
         scope: true,
-        templateUrl: './angular-popover.template.html',
+        template: `<div class="angular-popover-container" >
+                        <div class="angular-popover hide-popover-element">
+                            <ng-transclude class="popover-transclude" ng-blur="onBlur()" tabindex="1"></ng-transclude>
+                        </div>
+                        <div class="angular-popover-triangle hide-popover-element" ng-class="getTriangleClass()"></div>
+                    </div>
+                    `,
         link: function(scope, element, attrs) {
             //the root div of the popup template
             let popover_container = element[0].querySelector('.angular-popover-container'),
