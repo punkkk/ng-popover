@@ -57,7 +57,7 @@
 	<body ng-app="testPopover" ng-controller="testCtrl">
 		<div class="centered">
 			<div style="display: inline-block">
-				<button class="my-custom-class" angular-popover direction="bottom" template="A beautiful popover!" background-color="red" text-color="blue" padding="20px" style="position: relative;">
+				<button class="my-custom-class" angular-popover closeOnClick="false" direction="bottom" horizontalOffset="-70" background-color="red" text-color="blue" padding="20px" style="position: relative;">
 					<ul class="popover-list">
 						<li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
 					</ul>

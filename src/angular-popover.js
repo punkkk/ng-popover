@@ -12,6 +12,7 @@
                 //the root div of the popup template
                 var popover_container = element[0].querySelector('.angular-popover-container'),
                     popoverTransclude,
+                    horizontalOffset = parseInt(attrs.horizontaloffset, 10),
                     popover, //the popover element
                     parent_height, //height of the element to which the directive is attached
                     parent_width, //width of the element to which the directive is attached
@@ -73,23 +74,17 @@
                     if(mode == 'click' && closeOnClick) {
                         popover.classList.toggle('hide-popover-element');
                         triangle.classList.toggle('hide-popover-element');
-                        popover_container.classList.toggle('popover-animation');
-                        popover_container.classList.toggle('popover-floating-animation-' + attrs.direction);
                     }
 
                     else if(mode == 'click' && !closeOnClick) {
                         popover.classList.remove('hide-popover-element');
                         triangle.classList.remove('hide-popover-element');
-                        popover_container.classList.add('popover-animation');
-                        popover_container.classList.add('popover-floating-animation-' + attrs.direction);
                     }
 
                     //'mouseover' mode
                     else if(popover.classList.contains('hide-popover-element')) {
                         popover.classList.remove('hide-popover-element');
                         triangle.classList.remove('hide-popover-element');
-                        popover_container.classList.add('popover-animation');
-                        popover_container.classList.add('popover-floating-animation-' + attrs.direction);
                     }
 
                     popover_height = popover.clientHeight;
@@ -106,9 +101,9 @@
 
                         case 'bottom':
                             popover.style.top = triangle_height + 'px';
-                            popover.style.left = ((parent_width - popover_width + 10)) + 'px';
-                            triangle.style.top = -(triangle_rect_div_side - triangle_height - 1) + 'px';
-                            triangle.style.left = ((parent_width - triangle_rect_div_side)/2) + 'px';
+                            popover.style.left = ( ( parent_width - popover_width + horizontalOffset ) / 2 ) + 'px';
+                            triangle.style.top = -( triangle_rect_div_side - triangle_height - 1 ) + 'px';
+                            triangle.style.left = ( ( parent_width - triangle_rect_div_side ) / 2) + 'px';
                             break;
 
                         case 'right':
