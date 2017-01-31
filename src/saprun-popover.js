@@ -1,20 +1,20 @@
-let angularPopover = angular.module('angular-popover', []);
+let saprunPopover = angular.module('saprun-popover', []);
 
-angularPopover.directive('angularPopover', function() {
+saprunPopover.directive('saprunPopover', function() {
     return {
         restrict: 'A',
         transclude: true,
         scope: true,
-        template: `<div class="angular-popover-container" >
-                        <div class="angular-popover hide-popover-element">
+        template: `<div class="saprun-popover-container" >
+                        <div class="saprun-popover hide-popover-element">
                             <ng-transclude class="popover-transclude" ng-blur="onBlur()" tabindex="1"></ng-transclude>
                         </div>
-                        <div class="angular-popover-triangle hide-popover-element" ng-class="getTriangleClass()"></div>
+                        <div class="saprun-popover-triangle hide-popover-element" ng-class="getTriangleClass()"></div>
                     </div>
                     `,
         link: function(scope, element, attrs) {
             //the root div of the popup template
-            let popover_container = element[0].querySelector('.angular-popover-container'),
+            let popover_container = element[0].querySelector('.saprun-popover-container'),
                 popoverTransclude,
                 horizontalOffset = parseInt(attrs.horizontaloffset, 10),
                 popover, //the popover element
@@ -41,7 +41,7 @@ angularPopover.directive('angularPopover', function() {
 
             //depending upon the direction specified, attached the appropriate class to the popover
             scope.getTriangleClass = function() {
-                return 'angular-popover-triangle-' + attrs.direction;
+                return 'saprun-popover-triangle-' + attrs.direction;
             };
 
             scope.onBlur = () => {
@@ -74,8 +74,8 @@ angularPopover.directive('angularPopover', function() {
                 //move the popover container to the bottom of the directive element
                 popover_container.style.top = (parent_height + 5) + 'px';
                 parent_width = element[0].clientWidth;
-                popover = element[0].querySelector('.angular-popover');
-                triangle = element[0].querySelector('.angular-popover-triangle');
+                popover = element[0].querySelector('.saprun-popover');
+                triangle = element[0].querySelector('.saprun-popover-triangle');
 
                 if (mode == 'click' && closeOnClick) {
                     popover.classList.toggle('hide-popover-element');
@@ -132,10 +132,11 @@ angularPopover.directive('angularPopover', function() {
 
 (function () {
     if (typeof define === 'function' && define.amd) {
-        define(function(){ return angularPopover.name; });
+        define(function(){ return saprunPopover.name; });
     } else if (typeof module !== 'undefined' && module.exports) {
-        module.exports = angularPopover.name;
+        module.exports = saprunPopover.name;
     } else {
-        this[angularPopover.name] = angularPopover.name;
+        // console.log(this)
+        // this[saprunPopover.name] = saprunPopover.name;
     }
 }).call(this);

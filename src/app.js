@@ -1,4 +1,4 @@
-var app = angular.module('testPopover', ['angular-popover'])
+var app = angular.module('testPopover', ['saprun-popover'])
 
 app.controller('testCtrl', ['$scope', function($scope) {
     $scope.actionsList = [

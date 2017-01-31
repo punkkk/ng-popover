@@ -1,11 +1,11 @@
-.angular-popover-container {
+.saprun-popover-container {
 	position: absolute;
 	width: 0;
 	height: 0;
 	left: 0
 }
 
-.angular-popover {
+.saprun-popover {
 	position: absolute;
 	box-shadow: 0 0 7px 1px rgba(0, 0, 0, .2);
 	background-color: #fff
@@ -15,7 +15,7 @@
 	display: none
 }
 
-.angular-popover-triangle {
+.saprun-popover-triangle {
 	width: 30px;
 	height: 30px;
 	position: relative;
@@ -23,7 +23,7 @@
 	box-shadow: 0 6px 10px -17px rgba(0, 0, 0, .2)
 }
 
-.angular-popover-triangle:after {
+.saprun-popover-triangle:after {
 	content: "";
 	position: absolute;
 	width: 15px;
@@ -33,22 +33,22 @@
 	box-shadow: 0 0 7px 1px rgba(0, 0, 0, .2)
 }
 
-.angular-popover-triangle-top:after {
+.saprun-popover-triangle-top:after {
 	top: -8.5px;
 	left: 7px
 }
 
-.angular-popover-triangle-bottom:after {
+.saprun-popover-triangle-bottom:after {
 	top: 23.5px;
 	left: 7px
 }
 
-.angular-popover-triangle-right::after {
+.saprun-popover-triangle-right::after {
 	top: 7.5px;
 	left: 23.5px
 }
 
-.angular-popover-triangle-left::after {
+.saprun-popover-triangle-left::after {
 	top: 7.5px;
 	left: -8.5px
 }
@@ -57,6 +57,6 @@
 	position: relative;
 }
 
-.angular-popover-container ng-transclude:focus {
+.saprun-popover-container ng-transclude:focus {
 	outline: none;
 }

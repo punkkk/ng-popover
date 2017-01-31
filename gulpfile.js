@@ -5,13 +5,13 @@ const minifyJS = require('gulp-uglify');
 const minifyCSS = require('gulp-minify-css');
 
 gulp.task('compress-css', function() {
-	gulp.src('./src/angular-popover.css')
+	gulp.src('./src/saprun-popover.css')
 		.pipe(minifyCSS())
 		.pipe(gulp.dest('./dist'));
 });
 
 gulp.task('compress-js', function() {
-	gulp.src('./src/angular-popover.js')
+	gulp.src('./src/saprun-popover.js')
         .pipe(babel({
             presets: ['es2015']
         }))
@@ -20,13 +20,13 @@ gulp.task('compress-js', function() {
 });
 
 gulp.task('default', () => {
-    gulp.src('src/angular-popover.js')
+    gulp.src('src/saprun-popover.js')
         .pipe(babel({
             presets: ['es2015']
         }))
         .pipe(minifyJS())
         .pipe(gulp.dest('dist'));
-    gulp.src('./src/angular-popover.css')
+    gulp.src('./src/saprun-popover.css')
         .pipe(minifyCSS())
         .pipe(gulp.dest('./dist'));
 });

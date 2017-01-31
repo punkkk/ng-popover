@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Angular Popover</title>
-		<link rel="stylesheet" href="angular-popover.css">
+		<link rel="stylesheet" href="saprun-popover.css">
 		<style>
 			button {
 				background-color: #0599f1;
@@ -55,7 +55,7 @@
 				outline-style: none;
 			}
 
-			.my-custom-class .angular-popover {
+			.my-custom-class .saprun-popover {
 				width: 170px;
 			}
 
@@ -71,22 +71,22 @@
 	<body ng-app="testPopover" ng-controller="testCtrl">
 		<div class="centered">
 			<div class="space-between">
-				<button class="my-custom-class" angular-popover closeOnClick="false" direction="right" horizontalOffset="-70" padding="20px" style="position: relative;">
+				<button class="my-custom-class" saprun-popover closeOnClick="false" direction="right" horizontalOffset="-70" padding="20px" style="position: relative;">
 					<ul class="popover-list">
 						<li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
 					</ul>
 				</button>
-				<button class="my-custom-class" angular-popover closeOnClick="false" direction="top" horizontalOffset="-70" padding="20px" style="position: relative;">
+				<button class="my-custom-class" saprun-popover closeOnClick="false" direction="top" horizontalOffset="-70" padding="20px" style="position: relative;">
 					<ul class="popover-list">
 						<li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
 					</ul>
 				</button>
-                <button class="my-custom-class" angular-popover closeOnClick="false" direction="bottom" horizontalOffset="70" padding="20px" style="position: relative;">
+                <button class="my-custom-class" saprun-popover closeOnClick="false" direction="bottom" horizontalOffset="70" padding="20px" style="position: relative;">
                     <ul class="popover-list">
                         <li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
                     </ul>
                 </button>
-                <button class="my-custom-class" angular-popover closeOnClick="false" direction="left" horizontalOffset="-70" padding="20px" style="position: relative;">
+                <button class="my-custom-class" saprun-popover closeOnClick="false" direction="left" horizontalOffset="-70" padding="20px" style="position: relative;">
                     <ul class="popover-list">
                         <li style="display: block;" ng-repeat="action in actionsList" ng-bind="action.text" class="{{action.class}}"></li>
                     </ul>
@@ -94,7 +94,7 @@
 			</div>
 		</div>	
 		<script type="text/javascript" src="angular.min.js"></script>
-		<script src="../dist/angular-popover.js"></script>
+		<script src="../dist/saprun-popover.js"></script>
 		<script src="app.js"></script>
 	</body>
 </html>

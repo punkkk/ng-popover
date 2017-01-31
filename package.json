@@ -1,8 +1,8 @@
 {
-  "name": "angular-popover",
+  "name": "saprun-popover",
   "version": "2.5.0",
   "description": "Custom popover with transcluding content.",
-  "main": "dist/angular-popover.js",
+  "main": "dist/saprun-popover.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,7 @@
   "author": "Kozlov Victor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tarun-dugar/angular-popover/issues"
+    "url": "https://github.com/punkkk/ng-popover/issues"
   },
   "homepage": "https://tarun-dugar.github.io/ng-popover",
   "devDependencies": {

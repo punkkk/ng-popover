@@ -18,17 +18,19 @@ All old feauters +:
 
 Usage
 -----
-  1. Include angular-popover.js(or min.js) after loading AngularJS.
-  2. Include angular-popover.css. 
-  3. Add the angular-popover module to your project:
+  1. Include saprun-popover.js(or min.js) after loading AngularJS.
+  2. Include saprun-popover.css.
+  3. Add the saprun-popover module to your project:
   
     ```javascript
-    var app = angular.module('yourModuleName', ['angular-popover'])
+    var app = angular.module('yourModuleName', ['saprun-popover'])
     ```
-  4. Add the angular-popover directive along with multiple attributes:
+  4. Add the saprun-popover directive along with multiple attributes:
   
     ```html
-    <div angular-popover direction="top" template="hey there!">
+    <button class="my-custom-class" saprun-popover closeOnClick="false" direction="bottom" horizontalOffset="70" padding="20px" style="position: relative;">
+        <!-- content of popover here -->
+    </button>
     ```
   5. **IMPORTANT**: Keep in mind, the 'position' property of the element to which the directive is applied will be set to 'relative' if the current value of 'position' is 'static'.  
 
