@@ -5,7 +5,7 @@ Custom popover with transcluding content. Original demo: http://tarun-dugar.gith
 Installation
 -----
 ```code
-npm install https://github.com/punkkk/ng-popover.git
+npm install saprun-popover
 ```
 
 Features
